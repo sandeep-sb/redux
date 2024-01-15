@@ -1,5 +1,10 @@
 const redux = require("redux");
+const reduxLogger = require("redux-logger");
+
 const createStore = redux.createStore;
+const applyMiddleware = redux.applyMiddleware;
+const logger = reduxLogger.createLogger;
+
 
 // initial State of cake
 const cakeState = {
@@ -56,12 +61,11 @@ const rootReducer = redux.combineReducers({
     cakes: cakeReducer,
     iceCreams: iceCreamReducer
 })
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 console.log("Initial State", store.getState());
 // subscribe UI to the store. it return a function which can be used
 // to unsubscribe to the liteners
-const unsubscribe = store.subscribe(() => 
-                        console.log("Current State", store.getState()));
+const unsubscribe = store.subscribe(() => {});
 
 store.dispatch(buyCake());
 store.dispatch(buyCake());
