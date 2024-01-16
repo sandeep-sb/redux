@@ -3,7 +3,7 @@ const reduxLogger = require("redux-logger");
 
 const createStore = redux.createStore;
 const applyMiddleware = redux.applyMiddleware;
-const logger = reduxLogger.createLogger;
+const logger = reduxLogger.createLogger();
 
 
 // initial State of cake
