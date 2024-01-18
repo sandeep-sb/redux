@@ -34,4 +34,5 @@ const userSlice = createSlice({
 })
 
 module.exports = userSlice.reducer;
+// since fetchUsers generate action types, we export fetchUsers function
 module.exports.fetchUsers = fetchUsers;
